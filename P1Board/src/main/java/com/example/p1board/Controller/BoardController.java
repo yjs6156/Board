@@ -13,11 +13,6 @@ public class BoardController {
     @Autowired
     BoardService boardService;
 
-    @GetMapping("/hello")
-    public String hello() {
-        System.out.println("hello");
-        return "index";
-    }
 
 
 
