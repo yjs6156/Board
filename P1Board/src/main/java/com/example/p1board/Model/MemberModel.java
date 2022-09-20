@@ -19,7 +19,11 @@ public class MemberModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId; //회원 아이디
+    private long id; //회원 아이디
+
+    @Column(nullable = false)
+    @JsonProperty("user_id")
+    private String userId;//비밇번호
 
     @Column(nullable = false)
     private String password;//비밇번호

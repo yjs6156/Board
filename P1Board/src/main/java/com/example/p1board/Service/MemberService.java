@@ -11,9 +11,11 @@ public class MemberService {
     MemberRepository memberRepository;
 
     public MemberModel add(MemberModel memberModel) {
-
         return memberRepository.save(memberModel);
+    }
 
+    public MemberModel getByMemberId(Long id){
+       return memberRepository.findById(id).orElse(null);
     }
 
 
