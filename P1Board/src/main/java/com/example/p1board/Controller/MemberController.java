@@ -1,13 +1,11 @@
 package com.example.p1board.Controller;
 
 
-import com.example.p1board.Model.MemberModel;
+import com.example.p1board.Model.Member.MemberModel;
 import com.example.p1board.Service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MemberController {
@@ -15,12 +13,12 @@ public class MemberController {
     MemberService memberService;
 
 
-    @GetMapping("/signin")//회원가입페이지 접속
+    @RequestMapping("/signin")//회원가입페이지 접속
     public String signin() {
         return "/member/signin";
     }
 
-    @GetMapping("/login")//로그인페이지 접속
+    @RequestMapping("/login")//로그인페이지 접속
     public String login() {
         return "/member/login";
     }
@@ -31,17 +29,15 @@ public class MemberController {
         return "index";
     }
 
-
-    @GetMapping("/getMember")
-    public String get(Long id,Model model){
-        MemberModel memberModel= memberService.getByMemberId(id);
-        model.addAttribute("member",memberModel);
-
-        return "redirect:/index";
-
-
-    }
-
+//    @PostMapping("/userLogin")
+//    public MemberModel userLogin(String userId){
+//        ArrayList<MemberModel> memberModel= memberService.getByMemberUserId(userId);
+//
 //    }
 
+
+
+
 }
+
+

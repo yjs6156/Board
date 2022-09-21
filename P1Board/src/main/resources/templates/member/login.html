@@ -7,15 +7,18 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-
 <div id="wrap">
     <div class="center">
-        <h4>아이디</h4>
-        <p><input vatype="text"></p>
-        <h4>비밀번호</h4>
-        <p><input type="text"></p>
-        <button class="btn btn-primary">로그인</button>
-        <a href="/signin"><button class="btn btn-primary">회원가입</button></a>
+        <form action="/login" method="post">
+            <h4>아이디</h4>
+            <p><input name="userId" id="userId" placeholder="ID" type="text"></p>
+            <h4>비밀번호</h4>
+            <p><input name="password" id="password" placeholder="password" type="password"></p>
+            <button class="btn btn-primary">로그인</button>
+        </form>
+        <a href="/signin">
+            <button class="btn btn-primary">회원가입</button>
+        </a>
     </div>
 </div>
 

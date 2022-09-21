@@ -1,9 +1,9 @@
-package com.example.p1board.Model;
+package com.example.p1board.Model.Board;
 
+import com.example.p1board.Model.Member.MemberModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 

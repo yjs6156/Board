@@ -1,4 +1,4 @@
-package com.example.p1board.Model;
+package com.example.p1board.Model.Member;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -32,5 +32,9 @@ public class MemberModel {
     private String phoneNum; //전화번호
 
     private String email; //이메일
+
+    @Column(columnDefinition = "boolean default false")
+    private boolean domType; //관리자, 일반회원(false)
+
 
 }

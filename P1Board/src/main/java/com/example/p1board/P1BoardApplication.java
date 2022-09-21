@@ -1,6 +1,5 @@
 package com.example.p1board;
 
-import com.example.p1board.Model.MemberModel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
