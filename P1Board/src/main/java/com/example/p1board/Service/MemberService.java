@@ -13,15 +13,16 @@ public class MemberService {
     MemberRepository memberRepository;
 
     public MemberModel add(MemberModel memberModel) {
+
         return memberRepository.save(memberModel);
     }
 
-    public MemberModel getByMemberId(long id){
+    public MemberModel getByMemberId(long id) {
         return memberRepository.findById(id).orElse(null);
     }
 
-    public ArrayList<MemberModel> getByMemberUserId(String userId){
-       return memberRepository.findByUserId(userId);
+    public ArrayList<MemberModel> getByMemberUserId(String userId) {
+        return memberRepository.findByUserId(userId);
     }
 
 

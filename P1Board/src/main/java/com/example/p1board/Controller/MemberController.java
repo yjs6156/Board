@@ -5,7 +5,12 @@ import com.example.p1board.Model.Member.MemberModel;
 import com.example.p1board.Service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 public class MemberController {
@@ -29,15 +34,35 @@ public class MemberController {
         return "index";
     }
 
-//    @PostMapping("/userLogin")
-//    public MemberModel userLogin(String userId){
-//        ArrayList<MemberModel> memberModel= memberService.getByMemberUserId(userId);
-//
-//    }
+    @PostMapping("/memberLogin")
+    public String memLogin(String uId, String pwd, HttpSession session,Model model) {
+        ArrayList<MemberModel> list = memberService.getByMemberUserId(uId);
+        String msg = "";
+        String path ="";
+        if (!list.isEmpty())
+        {
+            MemberModel memberModel = list.get(0);
 
+            if (memberModel.getPassword().equals(pwd)) {
+                session.setAttribute("userId", uId);
+                session.setAttribute("id", memberModel.getId());
+                session.setAttribute("domtype", memberModel.isDomType());
 
+                path = "/index";
+            } else {
+                msg = "비밀번호가 틀렸습니다";
+                path = "/member/login";
 
+            }
+        } else{
+            msg = "존재하지 않는 id입니다";
+            path = "/member/login";
+        }
 
+        model.addAttribute("msg",msg);
+
+        return path;
+
+    }
 }
-
 

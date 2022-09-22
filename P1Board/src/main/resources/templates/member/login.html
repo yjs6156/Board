@@ -7,13 +7,14 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+
 <div id="wrap">
     <div class="center">
-        <form action="/login" method="post">
+        <form action="/memberLogin" method="post">
             <h4>아이디</h4>
-            <p><input name="userId" id="userId" placeholder="ID" type="text"></p>
+            <p><input name="uId" id="uId" placeholder="ID" type="text" required></p>
             <h4>비밀번호</h4>
-            <p><input name="password" id="password" placeholder="password" type="password"></p>
+            <p><input name="pwd" id="pwd" placeholder="password" type="password" required></p>
             <button class="btn btn-primary">로그인</button>
         </form>
         <a href="/signin">

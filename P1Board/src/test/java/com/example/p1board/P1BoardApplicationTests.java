@@ -1,5 +1,6 @@
 package com.example.p1board;
 
+import com.example.p1board.Model.Member.MemberModel;
 import com.example.p1board.Repository.MemberRepository;
 import com.example.p1board.Service.MemberService;
 import org.junit.jupiter.api.Test;
@@ -16,4 +17,5 @@ class P1BoardApplicationTests {
     void contextLoads() {
 
     }
+
 }
