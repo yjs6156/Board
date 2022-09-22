@@ -25,5 +25,10 @@ public class MemberService {
         return memberRepository.findByUserId(userId);
     }
 
+    public MemberModel deleteMember(long id){
+        memberRepository.deleteById(id);
+        return null;
+    }
+
 
 }

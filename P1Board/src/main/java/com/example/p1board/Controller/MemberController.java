@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Map;
 
-@Controller
+@RestController
 public class MemberController {
     @Autowired
     MemberService memberService;
@@ -26,6 +26,14 @@ public class MemberController {
     @RequestMapping("/login")//로그인페이지 접속
     public String login() {
         return "/member/login";
+    }
+
+    @GetMapping("/mypage/{id}")//회원가입페이지 접속
+    public String mypage(@PathVariable long id) {
+
+        MemberModel memberModel = memberService.getByMemberId(id);
+
+        return memberModel.toString();
     }
 
     @PostMapping("/addMember")//회원가입페이지서 MemberModel테이블에 DB저장
@@ -63,6 +71,11 @@ public class MemberController {
 
         return path;
 
+    }
+
+    @DeleteMapping("/deleteMember")
+    public void delMember(long id){
+        MemberModel memberModel = memberService.deleteMember(id);
     }
 }
 
