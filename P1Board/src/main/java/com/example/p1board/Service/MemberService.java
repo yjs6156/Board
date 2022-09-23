@@ -25,9 +25,8 @@ public class MemberService {
         return memberRepository.findByUserId(userId);
     }
 
-    public MemberModel deleteMember(long id){
-        memberRepository.deleteById(id);
-        return null;
+    public ArrayList<MemberModel> deleteMember(long id){
+        return memberRepository.deleteAllById(id);
     }
 
 

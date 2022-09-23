@@ -10,7 +10,7 @@
 <body>
 <div id="wrap">
     <div class="center">
-        <td th:hidden="${session.id}"></td>
+        <td th:text="${session.id}"></td>
         <p><input type="text"></p>
         <a href="/login">
             <button class="btn btn-primary">로그인</button>
@@ -18,7 +18,7 @@
         <a href="/signin">
             <button class="btn btn-primary">회원가입</button>
         </a>
-        <a href="/mypage/>
+        <a href="/myPage">
             <button class="btn btn-primary">마이페이지</button>
         </a>
     </div>
