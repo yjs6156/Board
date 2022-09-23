@@ -4,18 +4,23 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
 </head>
 <body>
 <div id="wrap">
-  <div class="center">
-    <form action="/deleteMember">
-      <input name="id" type="text" th:value="${session.id}">
-      <button type="submit" class="btn btn-primary">회원 탈퇴</button>
-    </form>
-    <a href="/edit"> <button type="submit" class="btn btn-primary">회원 수정</button></a>
-  </div>
+    <div class="center">
+        <form action="/deleteMember">
+            <input name="id" type="text" th:value="${session.id}">
+            <button type="submit" class="btn btn-primary">회원 탈퇴</button>
+        </form>
+        <a href="/edit">
+            <button type="submit" class="btn btn-primary">회원 수정</button>
+        </a>
+        <form action="/logout">
+            <button type="submit" class="btn btn-primary">로그아웃</button>
+        </form>
+    </div>
 </div>
 
 

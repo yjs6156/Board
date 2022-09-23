@@ -10,18 +10,18 @@
 <body>
 <div id="wrap">
     <div class="center">
-        <form action="/editMember" method="post">
-            <input name="id" type = "text" th:value="${session.id}">
-            아이디
-            <p><input name="userId" type="text" ></p>
-            비밀번호
-            <p><input name="password" type="text" ></p>
-            전화번호
-            <p> <input name="phoneNum" type="text" ></p>
-            이메일
-            <p> <input name="email" type="text"></p>
-            <button class="btn btn-primary">수정 완료</button>
-        </form>
+            <form action="/editMember" method="post">
+                <input name="id" type="text" th:value="${session.id}">
+                아이디
+                <p><input name="userId" type="text" th:value="${memberModel?.userId}"></p>
+                비밀번호
+                <p><input name="password" type="text" th:value="${memberModel?.password}"></p>
+                전화번호
+                <p><input name="phoneNum" type="text" th:value="${memberModel?.phoneNum}"></p>
+                이메일
+                <p><input name="email" type="text" th:value="${memberModel?.email}"></p>
+                <button class="btn btn-primary">수정 완료</button>
+            </form>
     </div>
 </div>
 

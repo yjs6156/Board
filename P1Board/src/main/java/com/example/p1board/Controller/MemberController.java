@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 public class MemberController {
@@ -76,9 +77,11 @@ public class MemberController {
     }
 
     @GetMapping("/editMember")
-    private String editMem(Model model,long id){
-        MemberModel memberModel = memberService.getByMemberId(id);
-        model.addAttribute("membermodel",memberModel);
+    private String editMem(Map map, long id){
+        MemberModel memberModel=memberService.getByMemberId(id);
+
+        map.put("memberModel",memberModel);
+
         return "/member/edit";
     }
 
@@ -97,5 +100,15 @@ public class MemberController {
         return "/member/mypage";
 
     }
+
+
+    @GetMapping("/logout") //회원 로그아웃
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+    }
+
+
+
 }
 
