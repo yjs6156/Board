@@ -12,10 +12,8 @@ public class BoardService {
     BoardRepository boardRepository;
 
 
-    public BoardModel saveAllBoard(BoardModel boardModel){
-
+    public BoardModel saveBoard(BoardModel boardModel){
         return boardRepository.save(boardModel);
-
     }
 
 }

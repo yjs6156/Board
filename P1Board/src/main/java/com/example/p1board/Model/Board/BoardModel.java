@@ -20,6 +20,8 @@ public class BoardModel {
     @ManyToOne
     @JoinColumn(name = "board_userid",nullable = false)
     private MemberModel id;
+
     private String title;//글제목
+
     private String content;//글내용
 }

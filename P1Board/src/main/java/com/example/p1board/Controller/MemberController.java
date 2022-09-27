@@ -56,7 +56,11 @@ public class MemberController {
             if (memberModel.getPassword().equals(pwd)) {
                 session.setAttribute("userId", uId);
                 session.setAttribute("id", memberModel.getId());
-                session.setAttribute("domtype", memberModel.isDomType());
+                session.setAttribute("password", memberModel.getPassword());
+                session.setAttribute("phoneNum", memberModel.getPhoneNum());
+                session.setAttribute("email", memberModel.getEmail());
+                session.setAttribute("domType", memberModel.isDomType());
+
                 path = "/index";
             } else {
                 msg = "비밀번호가 틀렸습니다";
@@ -77,10 +81,10 @@ public class MemberController {
     }
 
     @GetMapping("/editMember")
-    private String editMem(Map map, long id){
+    private String editMem(Model model, long id){
         MemberModel memberModel=memberService.getByMemberId(id);
 
-        map.put("memberModel",memberModel);
+        model.addAttribute("memberModel",memberModel);
 
         return "/member/edit";
     }
