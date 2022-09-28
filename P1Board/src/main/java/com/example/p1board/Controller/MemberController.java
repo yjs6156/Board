@@ -39,12 +39,28 @@ public class MemberController {
 
 
     @PostMapping("/addMember")//회원가입페이지서 MemberModel테이블에 DB저장
-    public String add(MemberModel memberModel) {
-        memberService.add(memberModel);
-        return "index";
+    public String add(String password,String userId,String phoneNum,String email) {
+        String path = "";
+        var memberModel = new MemberModel();
+
+        memberModel.setUserId(userId);
+        memberModel.setPassword(password);
+        memberModel.setPhoneNum(phoneNum);
+        memberModel.setEmail(email);
+
+        if((memberModel.getUserId().isEmpty()||memberModel.getPassword().isEmpty()) || (memberModel.getUserId().length()<4||memberModel.getPassword().length()<8) )
+        {
+            path="/member/signin";
+        }
+        else{
+            memberService.add(memberModel);
+            path="index";
+        }
+
+        return path;
     }
 
-    @PostMapping("/memberLogin")
+    @PostMapping("/memberLogin") //로그인 컨트롤러
     public String memLogin(String uId, String pwd, HttpSession session,Model model) {
         ArrayList<MemberModel> list = memberService.getByMemberUserId(uId);
         String msg = "";

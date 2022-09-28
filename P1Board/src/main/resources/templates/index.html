@@ -18,11 +18,13 @@
         <a href="/signin">
             <button class="btn btn-primary">회원가입</button>
         </a>
+
         <a href="/myPage">
-            <button class="btn btn-primary">마이페이지</button>
+
+            <button th:if="${session.id}!=null" class="btn btn-primary">마이페이지</button>
         </a>
         <a href="/board">
-            <button class="btn btn-primary">게시글 작성</button>
+            <button th:if="${session.id}!=null" class="btn btn-primary">게시글 작성</button>
         </a>
     </div>
 </div>
