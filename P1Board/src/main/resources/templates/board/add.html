@@ -5,22 +5,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-
 </head>
 <body>
 <div id="wrap">
-
     <div class="center">
-        <form action="/addMember" method="post">
-            아이디
-            <p><input name="userId" type="text" placeholder="4글자 이상"></p>
-            비밀번호
-            <p><input name="password" type="password" placeholder="8글자 이상"></p>
-            전화번호
-            <p><input name="phoneNum" type="text"></p>
-            이메일
-            <p><input name="email" type="text"></p>
-            <button class="btn btn-primary">완료</button>
+        <form action="/board/add" method="post">
+            <p><input name="id" type="text" th:value="${session.id}"></p>
+            제목
+            <p><input type="text" name="title"></p>
+            내용
+            <p><input type="text" name="content"></p>
+            <button class="btn btn-primary">작성</button>
         </form>
     </div>
 </div>

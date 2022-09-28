@@ -5,17 +5,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
 <div id="wrap">
     <div class="center">
-        <form action="/board/add" method="post">
-            <p><input name="id" type="text" th:value="${session.id}"></p>
-            <p><input type="text" name="title"></p>
-            <p><input type="text" name="content"></p>
-            <button class="btn btn-primary">작성</button>
+        <form action="/board/list" method="get">
+            <td th:each="board:${list}">
+                <div th:text="${board.num}"></div>
+                <div th:text="${board.title}"></div>
+                <div th:text="${board.content}"></div>
+
+            </td>
         </form>
+
     </div>
 </div>
 
