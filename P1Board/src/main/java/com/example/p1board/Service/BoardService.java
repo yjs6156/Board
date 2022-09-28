@@ -26,4 +26,8 @@ public class BoardService {
         return boardRepository.findByNum(num);
     }
 
+    public BoardModel deleteByNum(long num){
+        return boardRepository.deleteByNum(num);
+    }
+
 }

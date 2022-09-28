@@ -34,6 +34,5 @@ public class BoardModel {
     private String content;//글내용
 
     @CreatedDate
-    @DateTimeFormat(pattern ="HH:mm")
-    private LocalTime time; //실시간 날짜
+    private LocalDateTime dateTime; //실시간 날짜
 }

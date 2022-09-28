@@ -10,4 +10,6 @@ import java.util.ArrayList;
 public interface BoardRepository extends JpaRepository<BoardModel,String> {
     ArrayList<BoardModel> findByNum(long num);
 
+    BoardModel deleteByNum(long num);
+
 }
