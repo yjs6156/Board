@@ -10,11 +10,15 @@
 <div id="wrap">
     <div class="center">
         <form action="/board/add" method="post">
-            <p><input name="id" type="text" th:value="${session.id}"></p>
-            제목
-            <p><input type="text" name="title"></p>
-            내용
-            <p><input type="text" name="content"></p>
+            <div class="mb-3">
+                <p><input name="id" type="text" th:value="${session.id}"></p>
+                <label for="exampleFormControlInput1" class="form-label">제목</label>
+                <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="제목을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">내용</label>
+                <textarea name="content" class="form-control" id="exampleFormControlTextarea1"placeholder="내용을 입력하세요" rows="5"></textarea>
+            </div>
             <button class="btn btn-primary">작성</button>
         </form>
     </div>
