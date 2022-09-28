@@ -22,13 +22,10 @@ public class BoardController {
     public String board(){
         return "/board/add";
     }
-
     @PostMapping("/add")
     public String add(BoardModel boardModel){
-
         boardService.saveBoard(boardModel);
-
-        return "/board/list";
+        return "redirect:/board/list";
     }
 
     @GetMapping("/list")
