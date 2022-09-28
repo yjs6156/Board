@@ -107,7 +107,7 @@ public class MemberController {
 
     @PostMapping("/editMember")
     public String editMember(long id,String userId,String password,String phoneNum,String email){
-
+        String path="";
         MemberModel memberModel =memberService.getByMemberId(id);
 
         memberModel.setUserId(userId);
@@ -115,9 +115,15 @@ public class MemberController {
         memberModel.setEmail(email);
         memberModel.setPhoneNum(phoneNum);
 
-        memberService.add(memberModel);
+        if((memberModel.getUserId().isEmpty()||memberModel.getPassword().isEmpty()) || (memberModel.getUserId().length()<4||memberModel.getPassword().length()<8)){
+            path="/member/edit";
+        }
+        else{
+            memberService.add(memberModel);
+            path="/member/mypage";
 
-        return "/member/mypage";
+        }
+        return path;
 
     }
 
