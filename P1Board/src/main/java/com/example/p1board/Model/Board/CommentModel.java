@@ -1,38 +1,38 @@
 package com.example.p1board.Model.Board;
 
 import com.example.p1board.Model.Member.MemberModel;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class BoardModel {
+public class CommentModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long num; // 글번호
+    private long cNum;
+
+    private String comment;
+
+    private long likeSystem;
 
     @ManyToOne
-    @JoinColumn(name = "board_userid",nullable = false)
+    @JoinColumn(name = "board_Id",nullable = false)
+    private BoardModel num;
+
+    @ManyToOne
+    @JoinColumn(name = "board_userId",nullable = false)
     private MemberModel id;
 
-    private String title;//글제목
-
-    private String content;//글내용
 
     @CreatedDate
-    private LocalDateTime dateTime; //실시간 날짜
+    private LocalDateTime createdTime;
 }

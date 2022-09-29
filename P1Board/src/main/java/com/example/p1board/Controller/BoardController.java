@@ -1,7 +1,9 @@
 package com.example.p1board.Controller;
 
 import com.example.p1board.Model.Board.BoardModel;
+import com.example.p1board.Model.Board.CommentModel;
 import com.example.p1board.Service.BoardService;
+import com.example.p1board.Service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,8 @@ public class BoardController {
 
     @Autowired
     BoardService boardService;
+    @Autowired
+    CommentService commentService;
 
     @RequestMapping
     public String board(){
@@ -38,24 +42,27 @@ public class BoardController {
     @GetMapping("/detail/{num}") //detail 페이지 바인딩
     public String detail(@PathVariable long num, Model model){
 
-        ArrayList<BoardModel> list = boardService.getAll();
+        ArrayList<BoardModel> list = boardService.getByNum(num);
+
+
         model.addAttribute("list",list.get(0));
+        model.addAttribute("com",commentService.getByNum(num));
 
-
-        return "/board/detail"+list.get(0).getNum();
+        return "/board/detail";
     }
 
-    @DeleteMapping("delete")
+    @GetMapping("/delete")
     public String delete(long num){
-
         boardService.deleteByNum(num);
-
-        return "/board/list";
+        return "index";
     }
 
-
-
-
+    @PostMapping("commentAdd")
+    public String commentAdd(CommentModel commentModel){
+        commentService.saveComment(commentModel);
+        return "index";
+    }
+    
 
 
 }

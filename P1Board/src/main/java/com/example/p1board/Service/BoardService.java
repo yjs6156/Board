@@ -26,7 +26,7 @@ public class BoardService {
         return boardRepository.findByNum(num);
     }
 
-    public BoardModel deleteByNum(long num){
+    public ArrayList<BoardModel> deleteByNum(long num){
         return boardRepository.deleteByNum(num);
     }
 

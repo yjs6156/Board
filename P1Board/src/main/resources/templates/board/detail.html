@@ -6,10 +6,38 @@
 <head>
     <meta charset="UTF-8">
 </head>
-
 <body>
-<td th:text="${list.title}"></td>
-<td th:text="${list.content}"></td>
+<div id="wrap">
+    <div class="center">
+        제목
+        <p>
+        <td th:text="${list.title}"></td>
+        </p>
+        내용
+        <p>
+        <td th:text="${list.content}"></td>
+        </p>
+        <form action="/board/delete">
+            <p><input name="num" type="text" th:value="${list.num}"></p>
+            <button type="submit" class="btn btn-primary">삭제</button>
+        </form>
+        <form action="/board/commentAdd" method="post">
+            <p><input name="id" type="text" th:value="${session.id}"></p>
+            <p><input name="num" type="text" th:value="${list.num}"></p>
+
+            <p><input name="comment" type="text"></p>
+            <button type="submit" class="btn btn-primary">댓글 입력</button>
+            </th>
+        </form>
+
+        <tr th:each="comment:${com}">
+            <td th:text="${comment.CNum}"></td>
+            <td th:text="${comment.comment}"></td>
+        </tr>
+
+
+    </div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
